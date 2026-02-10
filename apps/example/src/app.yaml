@@ -1,0 +1,19 @@
+id: example
+name: Example
+homepage: /example
+description: 示例微应用
+layoutType: business
+usePublicDependencies: true
+private: false
+noAuthGuard: false
+uiVersion: "8.2"
+author:
+  - EasyOps
+menuIcon:
+  lib: fa
+  icon: cube
+locales:
+  en:
+    name: Example
+  zh:
+    name: 示例应用

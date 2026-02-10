@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+# post-commit hook
+# 在 commit 完成后自动生成 changeset 并 amend 到当前 commit
+
+# 防止递归调用：如果环境变量已设置，直接退出
+if [ "$SKIP_POST_COMMIT" = "1" ]; then
+  exit 0
+fi
+
+echo "Running auto-changeset script..."
+# 运行 auto-changeset 脚本（静默模式）
+node scripts/auto-changeset.js .git/COMMIT_EDITMSG --quiet
+
+# 检查是否生成了新的 changeset 文件
+NEW_CHANGESETS=$(git status --porcelain .changeset/*.md 2>/dev/null | grep "^??" | wc -l | tr -d ' ')
+
+if [ "$NEW_CHANGESETS" -gt 0 ]; then
+  # 添加 changeset 文件
+  git add .changeset/*.md
+
+  # Amend 到当前 commit（设置环境变量防止递归）
+  SKIP_POST_COMMIT=1 git commit --amend --no-edit --no-verify
+
+  echo "✅ Changeset 已自动添加到 commit"
+fi

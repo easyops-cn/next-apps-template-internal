@@ -1,0 +1,12 @@
+_meta:
+  fileName: example-main-menu
+menuId: example-main-menu
+type: main
+link: ${APP.homepage}
+items:
+  - text: <% I18N("HOME") %>
+    to: ${APP.homepage}/home
+    icon:
+      lib: fa
+      icon: home
+    sort: 10

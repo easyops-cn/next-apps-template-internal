@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": "@next-core/eslint-config-next",
+  "overrides": [
+    {
+      "files": [
+        "bricks/*/scripts/**/*.js",
+        "shared/*/scripts/**/*.js"
+      ],
+      "extends": "@next-core/eslint-config-next/node"
+    },
+    {
+      "files": ["jest/__mocks__/**/*.{js,ts,jsx,tsx}"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

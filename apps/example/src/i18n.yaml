@@ -1,0 +1,8 @@
+en:
+  WELCOME_TITLE: "Welcome to Example App"
+  WELCOME_DESC: "This is a template micro-application."
+  HOME: "Home"
+zh:
+  WELCOME_TITLE: "欢迎使用示例应用"
+  WELCOME_DESC: "这是一个模板微应用。"
+  HOME: "首页"

@@ -1,0 +1,8 @@
+_meta:
+  alias: Index
+  hasSubRoutes: true
+  order: 100
+type: routes
+path: ${APP.homepage}
+menu:
+  menuId: example-main-menu

@@ -1,0 +1,17 @@
+_meta:
+  alias: Home
+  hasSubRoutes: false
+  order: 100
+type: bricks
+path: ${APP.homepage}/home
+menu:
+  menuId: example-main-menu
+bricks:
+  - brick: presentational-bricks.brick-illustration
+    properties:
+      category: whoooa
+      header:
+        title: <% I18N("WELCOME_TITLE") %>
+        description: <% I18N("WELCOME_DESC") %>
+      mode: guide
+      name: support

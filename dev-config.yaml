@@ -1,0 +1,27 @@
+# 开发环境配置文件
+
+apps:
+  # 部署配置
+  deploy:
+    # 默认部署主机（未明确配置的应用将部署到此主机）
+    default: 172.30.0.59
+
+    # 特定应用的部署主机配置
+    hosts:
+      - host: 172.30.0.59
+        apps:
+          - example
+
+storyboard:
+  # 路由模板 - 使用 Eta 模板语法
+  # <%= it.name %> - 路由名称
+  # <%~ it.brick %> - 构件内容占位符（可以自然缩进）
+  routeTemplate: |
+    - brick: base-layout-v3.tpl-page-layout
+      properties:
+        pageTitle: "Hello <%= it.name %>"
+      slots:
+        content:
+          type: bricks
+          bricks:
+            <%~ it.brick %>
