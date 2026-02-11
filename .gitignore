@@ -12,7 +12,7 @@ dist-*
 report.*.json
 .history
 
-/dev.config.mjs
+
 /dev-settings.yaml
 /dev-https.key
 /dev-https.cert
