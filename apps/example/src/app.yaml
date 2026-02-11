@@ -7,6 +7,7 @@ usePublicDependencies: true
 private: false
 noAuthGuard: false
 uiVersion: "8.2"
+standaloneMode: true
 author:
   - EasyOps
 menuIcon:
