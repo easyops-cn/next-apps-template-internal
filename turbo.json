@@ -19,6 +19,14 @@
     },
     "test": {
       "dependsOn": ["^build"]
+    },
+    "build:artifact": {
+      "dependsOn": ["build"],
+      "outputs": ["dist-artifact/**"]
+    },
+    "build:artifact:production": {
+      "dependsOn": ["build"],
+      "outputs": ["dist-artifact/**"]
     }
   }
 }

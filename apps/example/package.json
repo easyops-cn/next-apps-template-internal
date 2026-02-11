@@ -4,14 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "storyboard-builder build --app example --src ./src --output ./storyboard.yaml --watch",
-    "build": "storyboard-builder build --app example --src ./src --output ./storyboard.yaml",
-    "build:artifact": "next-tsx-bundler",
-    "build:artifact:production": "next-tsx-bundler --mode production"
+    "start": "storyboard-builder build  --watch",
+    "build": "storyboard-builder build ",
+    "build:artifact": "storyboard-bundler",
+    "build:artifact:production": "storyboard-bundler --mode production"
   },
   "devDependencies": {
-    "@tsx/bundler": "^0.1.3",
-    "@tsx/storyboard-builder": "^0.1.0"
+    "@easyops/storyboard-builder": "^0.2.1",
+    "@easyops/storyboard-bundler": "^1.0.0",
+    "@easyops/storyboard-cli": "^0.2.1"
   },
   "dependencies": {
     "@bricks/base-layout": "^1.33.0",

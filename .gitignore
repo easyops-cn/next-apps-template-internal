@@ -19,6 +19,7 @@ report.*.json
 
 /apps/*/storyboard.yaml
 /apps/*/dist
+/apps/*/dist-artifact
 /apps/*/.install-result.json
 
 /bricks/*/.pkgbuild/

@@ -37,7 +37,7 @@ pnpm install
 pnpm --filter @apps/example run start
 
 # 在另一个终端启动开发服务器
-pnpm run serve -- --local-micro-apps=example --subdir --server=https://your-dev.easyops.local
+pnpm run serve -- --local-micro-apps=example --subdir --local-container --server=https://your-server.local
 
 # 访问: https://localhost:8081/next/example
 ```
@@ -99,7 +99,7 @@ pnpm run build:apps:artifact:production
 pnpm run start
 
 # 启动开发服务器
-pnpm run serve -- --local-micro-apps=YOUR_APP --subdir --server=https://YOUR_APP.dev.easyops.local
+pnpm run serve -- --local-micro-apps=YOUR_APP --subdir --local-container --server=https://your-server.local
 ```
 
 ### 测试
@@ -195,6 +195,7 @@ pnpm run release
 ```
 
 该命令会自动完成：
+
 1. 基于 changeset 文件更新版本号和 CHANGELOG
 2. Git commit
 3. 创建 Git tags
@@ -204,13 +205,10 @@ pnpm run release
 
 ### `dev.config.mjs`
 
-本地开发服务器配置（不提交到 Git），从 `dev.config.example.mjs` 复制：
-
-```bash
-cp dev.config.example.mjs dev.config.mjs
-```
+本地开发服务器配置
 
 可配置：
+
 - `brickFolders`：本地 brick 包路径
 - `settings`：Feature flags
 - `userConfigByApps`：应用级配置

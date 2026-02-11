@@ -2,7 +2,7 @@ _meta:
   alias: Index
   hasSubRoutes: true
   order: 100
-type: routes
+type: redirect
 path: ${APP.homepage}
-menu:
-  menuId: example-main-menu
+redirect: <% `${APP.homepage}/home` %>
+exact: true
