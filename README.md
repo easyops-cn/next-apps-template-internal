@@ -191,7 +191,7 @@ pnpm run changeset:status
 
 ```bash
 # 一键发布（更新版本号、生成 CHANGELOG、打 tag、推送）
-pnpm run release
+pnpm run publish
 ```
 
 该命令会自动完成：
@@ -200,6 +200,13 @@ pnpm run release
 2. Git commit
 3. 创建 Git tags
 4. 推送到远程仓库
+
+### 发布包到npm
+
+```bash
+# 发布 @shared/* 、 @bricks/* 类型的包到npm仓库
+pnpm run release
+```
 
 ## 开发配置
 
