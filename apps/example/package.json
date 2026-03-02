@@ -10,7 +10,7 @@
     "build:artifact:production": "storyboard-bundler --mode production"
   },
   "devDependencies": {
-    "@easyops/storyboard-builder": "^0.2.4",
+    "@easyops/storyboard-builder": "^0.2.6",
     "@easyops/storyboard-bundler": "^1.0.1",
     "@easyops/storyboard-cli": "^0.2.8"
   },
