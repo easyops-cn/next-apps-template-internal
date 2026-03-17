@@ -99,7 +99,7 @@ pnpm run build:apps:artifact:production
 pnpm run start
 
 # 启动开发服务器
-pnpm run serve -- --local-micro-apps=YOUR_APP --subdir --local-container --server=https://your-server.local
+pnpm run serve --local-micro-apps=YOUR_APP --subdir --local-container --server=https://your-server.local
 ```
 
 ### 测试

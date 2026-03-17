@@ -29,3 +29,6 @@ report.*.json
 /bootstrap.*.json
 
 .turbo
+
+.claude
+CLAUDE.md
