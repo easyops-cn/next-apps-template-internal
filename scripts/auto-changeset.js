@@ -44,7 +44,7 @@ function parseCommitMessage(message) {
  * 判断 commit 类型是否需要生成 changeset
  */
 function shouldCreateChangeset(type) {
-  const typesNeedChangeset = ['feat', 'fix', 'refactor', 'perf'];
+  const typesNeedChangeset = ['feat', 'fix', 'refactor', 'perf',"chore","style"];
   return typesNeedChangeset.includes(type);
 }
 
