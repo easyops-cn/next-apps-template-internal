@@ -25,6 +25,7 @@
     "build:bricks:types": "pnpm --filter './bricks/*' run build:types",
     "build:bricks:main": "pnpm --filter './bricks/*' run build:main",
     "build:shared": "turbo run build --filter='./shared/*'",
+    "postbuild": "pnpm run postbuild:apps",
     "prebuild:bricks:main": "pre-build-next-bricks",
     "postbuild:bricks:main": "post-build-next-bricks",
     "postbuild:apps": "node scripts/postbuild/index.js",
