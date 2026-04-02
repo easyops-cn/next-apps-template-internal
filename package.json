@@ -45,7 +45,7 @@
     "@changesets/cli": "^2.29.7",
     "@easyops/storyboard-builder": "^0.2.6",
     "@easyops/storyboard-bundler": "^1.1.0",
-    "@easyops/storyboard-cli": "^0.3.4",
+    "@easyops/storyboard-cli": "^0.4.0",
     "@easyops/wrapped-components": "^1.2.2",
     "@easyops/deps-upgrader": "^0.1.2",
     "@jest/globals": "^30.2.0",
