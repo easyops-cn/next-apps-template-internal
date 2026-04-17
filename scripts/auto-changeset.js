@@ -211,6 +211,12 @@ function main() {
     return;
   }
 
+  // 跳过发布相关的 commit（如 chore(release): publish）
+  if (type === "chore" && scope === "release") {
+    if (!isQuiet) console.log("ℹ️  发布 commit，跳过 changeset 生成");
+    return;
+  }
+
   const allPackages = scanAllPackages();
 
   if (allPackages.length === 0) {
