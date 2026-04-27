@@ -13,6 +13,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join } from 'path';
+import { execSync } from 'child_process';
 
 /**
  * 解析 Conventional Commit message
@@ -96,28 +97,56 @@ function scanAllPackages() {
 }
 
 /**
- * 根据 scope 识别受影响的包
+ * 通过 git diff 获取本次 commit 实际改动的包
+ */
+function getChangedPackages(packages) {
+  try {
+    const output = execSync(
+      'git diff-tree --no-commit-id --name-only -r HEAD',
+      { encoding: 'utf-8' }
+    );
+    const changedFiles = output
+      .trim()
+      .split('\n')
+      .filter(Boolean)
+      .filter(f => !f.startsWith('.changeset/'));
+
+    const changedDirs = new Set();
+    for (const file of changedFiles) {
+      const parts = file.split('/');
+      if (parts.length >= 2) {
+        changedDirs.add(`${parts[0]}/${parts[1]}`);
+      }
+    }
+
+    return packages.filter(p => changedDirs.has(p.path));
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * 根据 git diff 识别受影响的包，scope 仅作为辅助匹配
  */
 function identifyAffectedPackages(scope, packages) {
-  if (!scope) {
-    return packages.filter(p => p.dir === 'apps');
+  const changed = getChangedPackages(packages);
+  if (changed.length > 0) {
+    return changed;
   }
 
-  const affected = packages.filter(p => {
-    if (p.shortName === scope) {
-      return true;
-    }
-    if (p.shortName.includes(scope) || scope.includes(p.shortName)) {
-      return true;
-    }
-    return false;
-  });
-
-  if (affected.length === 0) {
-    return packages.filter(p => p.dir === 'apps');
+  if (scope) {
+    return packages.filter(p => {
+      if (p.shortName === scope) {
+        return true;
+      }
+      if (p.shortName.includes(scope) || scope.includes(p.shortName)) {
+        return true;
+      }
+      return false;
+    });
   }
 
-  return affected;
+  return [];
 }
 
 /**
